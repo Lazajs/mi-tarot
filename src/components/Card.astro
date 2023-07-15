@@ -1,0 +1,21 @@
+---
+import type { TarotCard } from '../types';
+
+interface Props extends TarotCard {
+}
+
+const { title, description, information: rawInfo, subtitle, updated_at, image, type} = Astro.props;
+
+const information = rawInfo.split('\n');
+
+---
+<article class="border-[4px] border-red-500 border-solid">
+	<h2 class="text-red-500">{title}</h2>
+	<p>{description}</p>
+	<ul class="list-disc">{information.map(text => <li>{text}</li>)}</ul>
+	<p>{subtitle}</p>
+	<p>{updated_at}</p>
+	<p>{type}</p>
+	<img src={image} alt={title} />
+</article>
+
