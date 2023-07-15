@@ -20,7 +20,7 @@ function toggleLoading () {
 }
 
 async function getSheetData(): Promise<string> {
-	const response = await fetch(import.meta.env.CSV_URL)
+	const response = await fetch(import.meta.env.PUBLIC_CSV_URL)
 	return await response.text()
 }
 
